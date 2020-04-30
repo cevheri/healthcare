@@ -9,7 +9,7 @@
     "baseName": "healthcare",
     "packageName": "tr.com.aurora.hbys.healthcare",
     "packageFolder": "tr/com/aurora/hbys/healthcare",
-    "serverPort": "8080",
+    "serverPort": "8082",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
     "enableHibernateCache": true,
