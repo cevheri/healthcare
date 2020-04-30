@@ -1,0 +1,29 @@
+{
+  "health": {
+    "title": "Sağlık",
+    "refresh.button": "Yenile",
+    "stacktrace": "Yığın İzleme",
+    "details": {
+      "details": "Detaylar",
+      "properties": "Ozellikler",
+      "name": "Ad",
+      "value": "Deger",
+      "error": "Hata"
+    },
+    "indicator": {
+      "diskSpace": "Disk alanı",
+      "mail": "E-posta",
+      "ping": "Application",
+      "db": "Veritabanı"
+    },
+    "table": {
+      "service": "Hizmetin adı",
+      "status": "Durum"
+    },
+    "status": {
+      "UNKNOWN": "UNKNOWN",
+      "UP": "AKTİF",
+      "DOWN": "DEAKTİF"
+    }
+  }
+}

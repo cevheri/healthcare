@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "tr.com.aurora.hbys.healthcare",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "healthcare",
+    "packageName": "tr.com.aurora.hbys.healthcare",
+    "packageFolder": "tr/com/aurora/hbys/healthcare",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZDliOTQ2ZDNkMTlmMzM3YTZkYWQ1Njc1NmEwMTY3NzJlN2FmMmI0YWFlODA4NTgxMWQzMWI0M2I5ZWRkNTY4M2I1YTM1Y2Q3MjgzN2JlYTgxYTQyZTZhNjgyN2QxMTlhNmIzMjgyZGE4MDY4MTI1N2U5NWZmZWUxOWRkNGIyNzI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1588288118936,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "tr"],
+    "blueprints": []
+  }
+}
