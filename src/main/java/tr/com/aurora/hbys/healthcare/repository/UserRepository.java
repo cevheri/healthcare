@@ -1,5 +1,6 @@
 package tr.com.aurora.hbys.healthcare.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import tr.com.aurora.hbys.healthcare.domain.User;
 
 import org.springframework.cache.annotation.Cacheable;
@@ -26,6 +27,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByActivationKey(String activationKey);
 
+
     List<User> findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant dateTime);
 
     Optional<User> findOneByResetKey(String resetKey);
@@ -34,6 +36,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByLogin(String login);
 
+    //@Query("select u from User u where u.activated = true and u.firstName like '?1%' and u.lastName like '?2%' order by u.id desc")
+    @Query(value = "select u.* from jhi_user u", nativeQuery = true)
+    List<User> findAllByActivatedTrueAndFirstNameStartingWithAndLastName(String name, String lname);
 
 
     @EntityGraph(attributePaths = "authorities")
