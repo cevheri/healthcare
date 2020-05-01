@@ -134,7 +134,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'healthcareApp'
+    name: 'HealthcareApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -147,13 +147,13 @@ jhipster:
     from: healthcare@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: healthcare API
+    title: Healthcare API
     description: healthcare API documentation
     version: 0.0.1
     terms-of-service-url:
-    contact-name:
+    contact-name: Cevheri
     contact-url:
-    contact-email:
+    contact-email: cevheribozoglan@gmail.com
     license:
     license-url:
 # ===================================================================
