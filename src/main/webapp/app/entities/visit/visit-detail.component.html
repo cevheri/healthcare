@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="visit">
+            <h2><span jhiTranslate="healthcareApp.visit.detail.title">Visit</span> {{ visit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="healthcareApp.visit.date">Date</span></dt>
+                <dd>
+                    <span>{{ visit.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="healthcareApp.visit.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'healthcareApp.VisitType.' + visit.type }}">{{ visit.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="healthcareApp.visit.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="visit.patientId">
+                        <a [routerLink]="['/patient', visit.patientId, 'view']">{{ visit.patientName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="healthcareApp.visit.doctor">Doctor</span></dt>
+                <dd>
+                    <div *ngIf="visit.doctorId">
+                        <a [routerLink]="['/doctor', visit.doctorId, 'view']">{{ visit.doctorName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="healthcareApp.visit.department">Department</span></dt>
+                <dd>
+                    <div *ngIf="visit.departmentId">
+                        <a [routerLink]="['/department', visit.departmentId, 'view']">{{ visit.departmentName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="healthcareApp.visit.visitService">Visit Service</span></dt>
+                <dd>
+                    <span *ngFor="let visitService of visit.visitServices; let last = last">
+                        <a [routerLink]="['/visit-service', visitService?.id, 'view']">{{ visitService.name }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/visit', visit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

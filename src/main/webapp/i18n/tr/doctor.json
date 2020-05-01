@@ -1,0 +1,25 @@
+{
+  "healthcareApp": {
+    "doctor": {
+      "home": {
+        "title": "Doctors",
+        "createLabel": "Create a new Doctor",
+        "createOrEditLabel": "Create or edit a Doctor",
+        "notFound": "No Doctors found"
+      },
+      "created": "A new Doctor is created with identifier {{ param }}",
+      "updated": "A Doctor is updated with identifier {{ param }}",
+      "deleted": "A Doctor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Doctor {{ id }}?"
+      },
+      "detail": {
+        "title": "Doctor"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "salary": "Salary",
+      "department": "Department"
+    }
+  }
+}

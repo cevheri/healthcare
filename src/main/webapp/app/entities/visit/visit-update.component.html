@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-visit-heading" jhiTranslate="healthcareApp.visit.home.createOrEditLabel">Create or edit a Visit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.visit.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.visit.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" formControlName="type" id="field_type">
+                        <option value="EXAMINATION">{{ 'healthcareApp.VisitType.EXAMINATION' | translate }}</option>
+                        <option value="ANALYSIS">{{ 'healthcareApp.VisitType.ANALYSIS' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.visit.patient" for="field_patient">Patient</label>
+                    <select class="form-control" id="field_patient" name="patient" formControlName="patientId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="patientOption.id" *ngFor="let patientOption of patients; trackBy: trackById">{{ patientOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.visit.doctor" for="field_doctor">Doctor</label>
+                    <select class="form-control" id="field_doctor" name="doctor" formControlName="doctorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="doctorOption.id" *ngFor="let doctorOption of doctors; trackBy: trackById">{{ doctorOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.visit.department" for="field_department">Department</label>
+                    <select class="form-control" id="field_department" name="department" formControlName="departmentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackById">{{ departmentOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="healthcareApp.visit.visitService" for="field_visitServices">Visit Service</label>
+                    <select class="form-control" id="field_visitServices" multiple name="visitServices" formControlName="visitServices">
+                        <option [ngValue]="getSelected(editForm.get('visitServices')!.value, visitServiceOption)" *ngFor="let visitServiceOption of visitservices; trackBy: trackById">{{ visitServiceOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

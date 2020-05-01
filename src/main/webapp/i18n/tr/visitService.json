@@ -1,0 +1,26 @@
+{
+  "healthcareApp": {
+    "visitService": {
+      "home": {
+        "title": "Visit Services",
+        "createLabel": "Create a new Visit Service",
+        "createOrEditLabel": "Create or edit a Visit Service",
+        "notFound": "No Visit Services found"
+      },
+      "created": "A new Visit Service is created with identifier {{ param }}",
+      "updated": "A Visit Service is updated with identifier {{ param }}",
+      "deleted": "A Visit Service is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Visit Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Visit Service"
+      },
+      "name": "Name",
+      "description": "Description",
+      "active": "Active",
+      "price": "Price",
+      "visit": "Visit"
+    }
+  }
+}

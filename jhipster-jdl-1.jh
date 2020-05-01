@@ -12,11 +12,11 @@ entity Patient {
     /*
      * Hasta Adi
      */
-     name String max(100) required,
+     name String maxlength(100) required,
     /*
      * Telefon Numarasi
      */
-     phone String max(20),
+     phone String maxlength(20),
     /*
      * Dogum Tarihi
      */
@@ -24,8 +24,8 @@ entity Patient {
     /*
      * Kimlik numarasi
      */
-     citizenNumber String max(11) required   
-     
+     citizenNumber String maxlength(11) required
+
 }
 
 /*
@@ -35,7 +35,7 @@ entity Department{
     /*
      * Bolum Adi
      */
-     name String max(200) required,
+     name String maxlength(200) required,
     /*
      * Bolum Tipi
      */
@@ -43,7 +43,7 @@ entity Department{
     /*
      * Acciklama
      */
-     description String max(1000),
+     description String maxlength(1000),
     /*
      * Aktiflik durumu
      */
@@ -56,11 +56,11 @@ entity Doctor{
     /*
      * Doktor Adi
      */
-     name String max(100) required,
+     name String maxlength(100) required,
     /*
      * Telefon Numarasi
      */
-     phone String max(20), 
+     phone String maxlength(20),
     /*
      * Maas bilgisi
      */
@@ -70,7 +70,7 @@ entity Doctor{
  * Hastanin basvuru
  */
 enum VisitType{
-	EXAMINATION, ANALYSIS    
+	EXAMINATION, ANALYSIS
 }
 /*
  * Hastaya verilebilecek Hizmet listesi
@@ -79,11 +79,11 @@ entity VisitService{
     /*
      * Hizmet Adi
      */
-     name String max(200) required,
+     name String maxlength(200) required,
     /*
      * Aciklama
      */
-     description String max(1000),
+     description String maxlength(1000),
     /*
      * Aktiflik durumu
      */
@@ -121,15 +121,15 @@ relationship ManyToOne{
    * Hastanin basvurdugu bolum
    */
     Visit{department(name)} to Department,
-    
+
 }
 
 relationship ManyToMany{
-	
+
   /*
    * Hasta ve basvuru iliskisi
    */
-    Visit{service(name)} to VisitService,  
+    Visit{visitService(name)} to VisitService{visit},
   /*
    * Hasta ve basvuru iliskisi
    */
@@ -143,7 +143,3 @@ dto * with mapstruct
 
 // Set service options to all except few
 service all with serviceImpl
-
-
-
-

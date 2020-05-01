@@ -42,6 +42,15 @@ public class CacheConfiguration {
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.User.class.getName());
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.Authority.class.getName());
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.User.class.getName() + ".authorities");
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Patient.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Department.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Department.class.getName() + ".doctors");
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Doctor.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Doctor.class.getName() + ".departments");
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.VisitService.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.VisitService.class.getName() + ".visits");
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Visit.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Visit.class.getName() + ".visitServices");
             // jhipster-needle-ehcache-add-entry
         };
     }

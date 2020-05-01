@@ -1,0 +1,25 @@
+{
+  "healthcareApp": {
+    "patient": {
+      "home": {
+        "title": "Patients",
+        "createLabel": "Create a new Patient",
+        "createOrEditLabel": "Create or edit a Patient",
+        "notFound": "No Patients found"
+      },
+      "created": "A new Patient is created with identifier {{ param }}",
+      "updated": "A Patient is updated with identifier {{ param }}",
+      "deleted": "A Patient is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Patient {{ id }}?"
+      },
+      "detail": {
+        "title": "Patient"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "birthDate": "Birth Date",
+      "citizenNumber": "Citizen Number"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "healthcareApp": {
+    "VisitType": {
+      "null": "",
+      "EXAMINATION": "EXAMINATION",
+      "ANALYSIS": "ANALYSIS"
+    }
+  }
+}
