@@ -1,0 +1,149 @@
+
+/*
+ * Bolum Tipleri
+ */
+enum DepartmentType{
+	SERVICE, POLYCLINIC
+}
+/*
+ * Hasta bilgileri yer almaktadir.
+ */
+entity Patient {
+    /*
+     * Hasta Adi
+     */
+     name String max(100) required,
+    /*
+     * Telefon Numarasi
+     */
+     phone String max(20),
+    /*
+     * Dogum Tarihi
+     */
+     birthDate LocalDate,
+    /*
+     * Kimlik numarasi
+     */
+     citizenNumber String max(11) required   
+     
+}
+
+/*
+ * Bolum bilgileri yer almaktadir.
+ */
+entity Department{
+    /*
+     * Bolum Adi
+     */
+     name String max(200) required,
+    /*
+     * Bolum Tipi
+     */
+     type DepartmentType,
+    /*
+     * Acciklama
+     */
+     description String max(1000),
+    /*
+     * Aktiflik durumu
+     */
+     active Boolean
+}
+/*
+ * Doktor bilgileri yer almaktadir.
+ */
+entity Doctor{
+    /*
+     * Doktor Adi
+     */
+     name String max(100) required,
+    /*
+     * Telefon Numarasi
+     */
+     phone String max(20), 
+    /*
+     * Maas bilgisi
+     */
+     salary Long
+}
+/*
+ * Hastanin basvuru
+ */
+enum VisitType{
+	EXAMINATION, ANALYSIS    
+}
+/*
+ * Hastaya verilebilecek Hizmet listesi
+ */
+entity VisitService{
+    /*
+     * Hizmet Adi
+     */
+     name String max(200) required,
+    /*
+     * Aciklama
+     */
+     description String max(1000),
+    /*
+     * Aktiflik durumu
+     */
+     active Boolean,
+   /*
+    * Hizmet Tutari
+    */
+    price Double
+}
+
+/*
+ * Hastanin muayene bilgileri yer almaktadir.
+ */
+entity Visit{
+  /*
+   * Hastanin basvuru tarihi
+   */
+	date Instant,
+  /*
+   * Hastanin basvuru tipi
+   */
+    type VisitType
+}
+
+relationship ManyToOne{
+  /*
+   * Hasta ve basvuru iliskisi
+   */
+    Visit{patient(name)} to Patient,
+  /*
+   * Hastanin basvurudaki doktoru
+   */
+    Visit{doctor(name)} to Doctor,
+  /*
+   * Hastanin basvurdugu bolum
+   */
+    Visit{department(name)} to Department,
+    
+}
+
+relationship ManyToMany{
+	
+  /*
+   * Hasta ve basvuru iliskisi
+   */
+    Visit{service(name)} to VisitService,  
+  /*
+   * Hasta ve basvuru iliskisi
+   */
+    Doctor{department(name)} to Department{doctor}
+}
+
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+
+
+
