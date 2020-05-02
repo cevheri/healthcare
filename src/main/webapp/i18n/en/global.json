@@ -12,6 +12,7 @@
         "doctor": "Doctor",
         "visitService": "Visit Service",
         "visit": "Visit",
+        "company": "Company",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
