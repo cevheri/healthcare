@@ -27,6 +27,7 @@
                     <th scope="col"  jhiSortBy="type"><span jhiTranslate="healthcareApp.department.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="healthcareApp.department.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="active"><span jhiTranslate="healthcareApp.department.active">Active</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="companyName"><span jhiTranslate="healthcareApp.department.company">Company</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -37,6 +38,11 @@
                     <td jhiTranslate="{{ 'healthcareApp.DepartmentType.' + department.type }}">{{ department.type }}</td>
                     <td>{{ department.description }}</td>
                     <td>{{ department.active }}</td>
+                    <td>
+                        <div *ngIf="department.companyId">
+                            <a [routerLink]="['/company', department.companyId , 'view']" >{{ department.companyName }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

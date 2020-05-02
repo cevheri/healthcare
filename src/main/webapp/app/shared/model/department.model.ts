@@ -8,6 +8,8 @@ export interface IDepartment {
   description?: string;
   active?: boolean;
   doctors?: IDoctor[];
+  companyName?: string;
+  companyId?: number;
 }
 
 export class Department implements IDepartment {
@@ -17,7 +19,9 @@ export class Department implements IDepartment {
     public type?: DepartmentType,
     public description?: string,
     public active?: boolean,
-    public doctors?: IDoctor[]
+    public doctors?: IDoctor[],
+    public companyName?: string,
+    public companyId?: number
   ) {
     this.active = this.active || false;
   }

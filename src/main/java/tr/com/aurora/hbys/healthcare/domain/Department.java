@@ -1,6 +1,7 @@
 package tr.com.aurora.hbys.healthcare.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -49,6 +50,10 @@ public class Department implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
     private Set<Doctor> doctors = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties("departments")
+    private Company company;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -134,6 +139,19 @@ public class Department implements Serializable {
 
     public void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public Department company(Company company) {
+        this.company = company;
+        return this;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

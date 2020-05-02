@@ -52,6 +52,14 @@
                     <input type="checkbox" class="form-control" name="active" id="field_active"
                            formControlName="active"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.department.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" formControlName="companyId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyOption.id" *ngFor="let companyOption of companies; trackBy: trackById">{{ companyOption.name }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

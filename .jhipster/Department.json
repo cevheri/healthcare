@@ -36,6 +36,13 @@
             "relationshipName": "doctor",
             "otherEntityField": "id",
             "ownerSide": false
+        },
+        {
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "department"
         }
     ],
     "changelogDate": "20200501230500",
@@ -48,5 +55,7 @@
     "readOnly": false,
     "embedded": false,
     "clientRootFolder": "",
-    "applications": "*"
+    "applications": "*",
+    "searchEngine": false,
+    "databaseType": "sql"
 }

@@ -20,7 +20,8 @@
       "type": "Type",
       "description": "Description",
       "active": "Active",
-      "doctor": "Doctor"
+      "doctor": "Doctor",
+      "company": "Company"
     }
   }
 }

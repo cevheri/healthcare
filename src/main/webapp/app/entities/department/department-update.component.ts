@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IDepartment, Department } from 'app/shared/model/department.model';
 import { DepartmentService } from './department.service';
+import { ICompany } from 'app/shared/model/company.model';
+import { CompanyService } from 'app/entities/company/company.service';
 
 @Component({
   selector: 'jhi-department-update',
@@ -14,20 +16,29 @@ import { DepartmentService } from './department.service';
 })
 export class DepartmentUpdateComponent implements OnInit {
   isSaving = false;
+  companies: ICompany[] = [];
 
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required, Validators.maxLength(200)]],
     type: [],
     description: [null, [Validators.maxLength(1000)]],
-    active: []
+    active: [],
+    companyId: []
   });
 
-  constructor(protected departmentService: DepartmentService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected departmentService: DepartmentService,
+    protected companyService: CompanyService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ department }) => {
       this.updateForm(department);
+
+      this.companyService.query().subscribe((res: HttpResponse<ICompany[]>) => (this.companies = res.body || []));
     });
   }
 
@@ -37,7 +48,8 @@ export class DepartmentUpdateComponent implements OnInit {
       name: department.name,
       type: department.type,
       description: department.description,
-      active: department.active
+      active: department.active,
+      companyId: department.companyId
     });
   }
 
@@ -62,7 +74,8 @@ export class DepartmentUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       type: this.editForm.get(['type'])!.value,
       description: this.editForm.get(['description'])!.value,
-      active: this.editForm.get(['active'])!.value
+      active: this.editForm.get(['active'])!.value,
+      companyId: this.editForm.get(['companyId'])!.value
     };
   }
 
@@ -80,5 +93,9 @@ export class DepartmentUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: ICompany): any {
+    return item.id;
   }
 }

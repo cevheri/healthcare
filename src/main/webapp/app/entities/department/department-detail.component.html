@@ -24,6 +24,12 @@
                 <dd>
                     <span>{{ department.active }}</span>
                 </dd>
+                <dt><span jhiTranslate="healthcareApp.department.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="department.companyId">
+                        <a [routerLink]="['/company', department.companyId, 'view']">{{ department.companyName }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

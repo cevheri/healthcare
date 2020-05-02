@@ -23,6 +23,10 @@ public class DepartmentDTO implements Serializable {
 
     private Boolean active;
 
+
+    private Long companyId;
+
+    private String companyName;
     
     public Long getId() {
         return id;
@@ -64,6 +68,22 @@ public class DepartmentDTO implements Serializable {
         this.active = active;
     }
 
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -93,6 +113,8 @@ public class DepartmentDTO implements Serializable {
             ", type='" + getType() + "'" +
             ", description='" + getDescription() + "'" +
             ", active='" + isActive() + "'" +
+            ", companyId=" + getCompanyId() +
+            ", companyName='" + getCompanyName() + "'" +
             "}";
     }
 }
