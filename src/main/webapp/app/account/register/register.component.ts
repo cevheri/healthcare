@@ -42,7 +42,10 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   register(): void {
-    this.doNotMatch = false;
+    this.error = true;
+    // eslint-disable-next-line no-debugger
+    debugger;
+    // this.doNotMatch = false;
     this.error = false;
     this.errorEmailExists = false;
     this.errorUserExists = false;

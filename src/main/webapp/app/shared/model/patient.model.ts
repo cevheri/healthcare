@@ -6,8 +6,16 @@ export interface IPatient {
   phone?: string;
   birthDate?: Moment;
   citizenNumber?: string;
+  address?: string;
 }
 
 export class Patient implements IPatient {
-  constructor(public id?: number, public name?: string, public phone?: string, public birthDate?: Moment, public citizenNumber?: string) {}
+  constructor(
+    public id?: number,
+    public name?: string,
+    public phone?: string,
+    public birthDate?: Moment,
+    public citizenNumber?: string,
+    public address?: string
+  ) {}
 }

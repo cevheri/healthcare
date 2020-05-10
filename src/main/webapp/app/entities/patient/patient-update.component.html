@@ -64,8 +64,21 @@
                         </small>
                     </div>
                 </div>
-            </div>
 
+                <!-- Cevheri 20200510 : Hasta Adress alanı editlenebilir şekilde eklendi. -->
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.patient.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                    <div *ngIf="editForm.get('address')!.invalid && (editForm.get('address')!.dirty || editForm.get('address')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('address')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                        This field cannot be longer than 11 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <!-- end Hasta Address -->
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

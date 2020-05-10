@@ -19,7 +19,8 @@
       "name": "Name",
       "phone": "Phone",
       "birthDate": "Birth Date",
-      "citizenNumber": "Citizen Number"
+      "citizenNumber": "Citizen Number",
+      "address": "Address"
     }
   }
 }

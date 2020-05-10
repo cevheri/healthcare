@@ -43,6 +43,11 @@ public class Patient implements Serializable {
     private String citizenNumber;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    @Size(max = 1000)
+    @Column(name = "address", length = 1000)
+    private String address;
+
+
     public Long getId() {
         return id;
     }
@@ -104,6 +109,20 @@ public class Patient implements Serializable {
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Patient address(String address) {
+        this.address = address;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -128,6 +147,7 @@ public class Patient implements Serializable {
             ", phone='" + getPhone() + "'" +
             ", birthDate='" + getBirthDate() + "'" +
             ", citizenNumber='" + getCitizenNumber() + "'" +
+            ", address='" + getAddress() + "'" +
             "}";
     }
 }
