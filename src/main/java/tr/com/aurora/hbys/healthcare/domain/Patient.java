@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.time.LocalDate;
 
+import tr.com.aurora.hbys.healthcare.domain.enumeration.GenderType;
+
 /**
  * A Patient.
  */
@@ -42,12 +44,11 @@ public class Patient implements Serializable {
     @Column(name = "citizen_number", length = 11, nullable = false)
     private String citizenNumber;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender_type")
+    private GenderType genderType;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    @Size(max = 1000)
-    @Column(name = "address", length = 1000)
-    private String address;
-
-
     public Long getId() {
         return id;
     }
@@ -107,21 +108,20 @@ public class Patient implements Serializable {
     public void setCitizenNumber(String citizenNumber) {
         this.citizenNumber = citizenNumber;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-
-    public String getAddress() {
-        return address;
+    public GenderType getGenderType() {
+        return genderType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Patient address(String address) {
-        this.address = address;
+    public Patient genderType(GenderType genderType) {
+        this.genderType = genderType;
         return this;
     }
+
+    public void setGenderType(GenderType genderType) {
+        this.genderType = genderType;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -147,7 +147,7 @@ public class Patient implements Serializable {
             ", phone='" + getPhone() + "'" +
             ", birthDate='" + getBirthDate() + "'" +
             ", citizenNumber='" + getCitizenNumber() + "'" +
-            ", address='" + getAddress() + "'" +
+            ", genderType='" + getGenderType() + "'" +
             "}";
     }
 }

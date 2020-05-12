@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { GenderType } from 'app/shared/model/enumerations/gender-type.model';
 
 export interface IPatient {
   id?: number;
@@ -6,7 +7,7 @@ export interface IPatient {
   phone?: string;
   birthDate?: Moment;
   citizenNumber?: string;
-  address?: string;
+  genderType?: GenderType;
 }
 
 export class Patient implements IPatient {
@@ -16,6 +17,6 @@ export class Patient implements IPatient {
     public phone?: string,
     public birthDate?: Moment,
     public citizenNumber?: string,
-    public address?: string
+    public genderType?: GenderType
   ) {}
 }

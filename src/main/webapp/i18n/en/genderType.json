@@ -1,0 +1,9 @@
+{
+  "healthcareApp": {
+    "GenderType": {
+      "null": "",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE"
+    }
+  }
+}

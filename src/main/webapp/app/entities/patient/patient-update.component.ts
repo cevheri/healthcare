@@ -22,7 +22,7 @@ export class PatientUpdateComponent implements OnInit {
     phone: [null, [Validators.maxLength(20)]],
     birthDate: [],
     citizenNumber: [null, [Validators.required, Validators.maxLength(11)]],
-    address: [null, [Validators.maxLength(1000)]]
+    genderType: []
   });
 
   constructor(protected patientService: PatientService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -40,7 +40,7 @@ export class PatientUpdateComponent implements OnInit {
       phone: patient.phone,
       birthDate: patient.birthDate,
       citizenNumber: patient.citizenNumber,
-      address: patient.address
+      genderType: patient.genderType
     });
   }
 
@@ -66,7 +66,7 @@ export class PatientUpdateComponent implements OnInit {
       phone: this.editForm.get(['phone'])!.value,
       birthDate: this.editForm.get(['birthDate'])!.value,
       citizenNumber: this.editForm.get(['citizenNumber'])!.value,
-      address: this.editForm.get(['address'])!.value
+      genderType: this.editForm.get(['genderType'])!.value
     };
   }
 

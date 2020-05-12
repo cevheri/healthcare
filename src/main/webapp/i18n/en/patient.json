@@ -20,7 +20,7 @@
       "phone": "Phone",
       "birthDate": "Birth Date",
       "citizenNumber": "Citizen Number",
-      "address": "Address"
+      "genderType": "Gender Type"
     }
   }
 }

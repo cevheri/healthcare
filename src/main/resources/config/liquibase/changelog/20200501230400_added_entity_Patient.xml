@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Patient.
     -->
@@ -16,16 +16,19 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(100)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" />
             </column>
             <column name="phone" type="varchar(20)">
-                <constraints nullable="true"/>
+                <constraints nullable="true" />
             </column>
             <column name="birth_date" type="date">
-                <constraints nullable="true"/>
+                <constraints nullable="true" />
             </column>
             <column name="citizen_number" type="varchar(11)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" />
+            </column>
+            <column name="gender_type" type="varchar(255)">
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
@@ -33,17 +36,6 @@
 
     <changeSet id="20200501230400-1-relations" author="jhipster">
 
-    </changeSet>
-
-    <!-- Cevheri 20200510 : Hastaya adres alani eklendi.-->
-    <changeSet id="20200510235900-patient-4" author="hbys-dev">
-        <addColumn tableName="patient">
-            <column name="address"
-                    type="varchar(1000)"
-                    remarks="Hasta adres bilgisi yer almaktadir">
-                <constraints nullable="true"/>
-            </column>
-        </addColumn>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 
@@ -57,15 +49,15 @@
     -->
     <changeSet id="20200501230400-1-data" author="jhipster" context="faker">
         <loadData
-            file="config/liquibase/fake-data/patient.csv"
-            separator=";"
-            tableName="patient">
+                  file="config/liquibase/fake-data/patient.csv"
+                  separator=";"
+                  tableName="patient">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="phone" type="string"/>
             <column name="birth_date" type="date"/>
             <column name="citizen_number" type="string"/>
-            <column name="address" type="string"/>
+            <column name="gender_type" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

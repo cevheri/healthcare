@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { PatientService } from 'app/entities/patient/patient.service';
 import { IPatient, Patient } from 'app/shared/model/patient.model';
+import { GenderType } from 'app/shared/model/enumerations/gender-type.model';
 
 describe('Service Tests', () => {
   describe('Patient Service', () => {
@@ -24,7 +25,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Patient(0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA');
+      elemDefault = new Patient(0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA', GenderType.MALE);
     });
 
     describe('Service methods', () => {
@@ -72,7 +73,8 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             phone: 'BBBBBB',
             birthDate: currentDate.format(DATE_FORMAT),
-            citizenNumber: 'BBBBBB'
+            citizenNumber: 'BBBBBB',
+            genderType: 'BBBBBB'
           },
           elemDefault
         );
@@ -97,7 +99,8 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             phone: 'BBBBBB',
             birthDate: currentDate.format(DATE_FORMAT),
-            citizenNumber: 'BBBBBB'
+            citizenNumber: 'BBBBBB',
+            genderType: 'BBBBBB'
           },
           elemDefault
         );

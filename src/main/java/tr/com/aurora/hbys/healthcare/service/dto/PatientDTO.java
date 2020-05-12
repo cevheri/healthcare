@@ -1,22 +1,16 @@
 package tr.com.aurora.hbys.healthcare.service.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-
 import java.time.LocalDate;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
+import tr.com.aurora.hbys.healthcare.domain.enumeration.GenderType;
 
 /**
  * A DTO for the {@link tr.com.aurora.hbys.healthcare.domain.Patient} entity.
  */
-@ApiModel(value = "PatientDTO",
-    description = "Hastaya ait bilgilerin yer aldigi objedir")
 public class PatientDTO implements Serializable {
-
+    
     private Long id;
 
     @NotNull
@@ -32,9 +26,9 @@ public class PatientDTO implements Serializable {
     @Size(max = 11)
     private String citizenNumber;
 
-    @ApiModelProperty(name = "PatientAddress", value = "Hasta Adres bilgisi")
-    private String address;
+    private GenderType genderType;
 
+    
     public Long getId() {
         return id;
     }
@@ -75,12 +69,12 @@ public class PatientDTO implements Serializable {
         this.citizenNumber = citizenNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public GenderType getGenderType() {
+        return genderType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setGenderType(GenderType genderType) {
+        this.genderType = genderType;
     }
 
     @Override
@@ -112,7 +106,7 @@ public class PatientDTO implements Serializable {
             ", phone='" + getPhone() + "'" +
             ", birthDate='" + getBirthDate() + "'" +
             ", citizenNumber='" + getCitizenNumber() + "'" +
-            ", address='" + getAddress() + "'" +
+            ", genderType='" + getGenderType() + "'" +
             "}";
     }
 }

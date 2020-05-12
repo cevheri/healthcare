@@ -24,9 +24,9 @@
                 <dd>
                     <span>{{ patient.citizenNumber }}</span>
                 </dd>
-                <dt><span jhiTranslate="healthcareApp.patient.address">Address</span></dt>
+                <dt><span jhiTranslate="healthcareApp.patient.genderType">Gender Type</span></dt>
                 <dd>
-                    <span>{{ patient.address }}</span>
+                    <span jhiTranslate="{{ 'healthcareApp.GenderType.' + patient.genderType }}">{{ patient.genderType }}</span>
                 </dd>
             </dl>
 

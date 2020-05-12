@@ -2,25 +2,25 @@
   "healthcareApp": {
     "patient": {
       "home": {
-        "title": "Hastalar",
-        "createLabel": "Yeni Hasta Oluştur",
-        "createOrEditLabel": "Hasta oluştur veya güncelle",
-        "notFound": "Hasta bulunamadı"
+        "title": "Patients",
+        "createLabel": "Create a new Patient",
+        "createOrEditLabel": "Create or edit a Patient",
+        "notFound": "No Patients found"
       },
-      "created": "{{ param }}'li bir hasta oluşturuldu",
-      "updated": "{{ param }}'li bir hasta güncellendi",
-      "deleted": "{{ param }}'li bir hasta silindi",
+      "created": "A new Patient is created with identifier {{ param }}",
+      "updated": "A Patient is updated with identifier {{ param }}",
+      "deleted": "A Patient is deleted with identifier {{ param }}",
       "delete": {
-        "question": "{{ id }}'li hastayı silmek istediğinize emin misiniz?(E-H)"
+        "question": "Are you sure you want to delete Patient {{ id }}?"
       },
       "detail": {
-        "title": "Hasta"
+        "title": "Patient"
       },
-      "name": "Hasta Adı",
-      "phone": "Telefon",
-      "birthDate": "Doğum Tarihi",
-      "citizenNumber": "Kimlik Numarası",
-      "address": "Adres"
+      "name": "Name",
+      "phone": "Phone",
+      "birthDate": "Birth Date",
+      "citizenNumber": "Citizen Number",
+      "genderType": "Gender Type"
     }
   }
 }

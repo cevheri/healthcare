@@ -27,7 +27,7 @@
                     <th scope="col"  jhiSortBy="phone"><span jhiTranslate="healthcareApp.patient.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="birthDate"><span jhiTranslate="healthcareApp.patient.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="citizenNumber"><span jhiTranslate="healthcareApp.patient.citizenNumber">Citizen Number</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="healthcareApp.patient.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="genderType"><span jhiTranslate="healthcareApp.patient.genderType">Gender Type</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -38,7 +38,7 @@
                     <td>{{ patient.phone }}</td>
                     <td>{{ patient.birthDate | date:'mediumDate' }}</td>
                     <td>{{ patient.citizenNumber }}</td>
-                    <td>{{ patient.address }}</td>
+                    <td jhiTranslate="{{ 'healthcareApp.GenderType.' + patient.genderType }}">{{ patient.genderType }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

@@ -30,6 +30,11 @@
                 "required"
             ],
             "fieldValidateRulesMaxlength": "11"
+        },
+        {
+            "fieldName": "genderType",
+            "fieldType": "GenderType",
+            "fieldValues": "MALE,FEMALE"
         }
     ],
     "relationships": [],
@@ -43,5 +48,7 @@
     "readOnly": false,
     "embedded": false,
     "clientRootFolder": "",
-    "applications": "*"
+    "applications": "*",
+    "searchEngine": false,
+    "databaseType": "sql"
 }

@@ -26,6 +26,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import tr.com.aurora.hbys.healthcare.domain.enumeration.GenderType;
 /**
  * Integration tests for the {@link PatientResource} REST controller.
  */
@@ -46,6 +47,9 @@ public class PatientResourceIT {
 
     private static final String DEFAULT_CITIZEN_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_CITIZEN_NUMBER = "BBBBBBBBBB";
+
+    private static final GenderType DEFAULT_GENDER_TYPE = GenderType.MALE;
+    private static final GenderType UPDATED_GENDER_TYPE = GenderType.FEMALE;
 
     @Autowired
     private PatientRepository patientRepository;
@@ -75,7 +79,8 @@ public class PatientResourceIT {
             .name(DEFAULT_NAME)
             .phone(DEFAULT_PHONE)
             .birthDate(DEFAULT_BIRTH_DATE)
-            .citizenNumber(DEFAULT_CITIZEN_NUMBER);
+            .citizenNumber(DEFAULT_CITIZEN_NUMBER)
+            .genderType(DEFAULT_GENDER_TYPE);
         return patient;
     }
     /**
@@ -89,7 +94,8 @@ public class PatientResourceIT {
             .name(UPDATED_NAME)
             .phone(UPDATED_PHONE)
             .birthDate(UPDATED_BIRTH_DATE)
-            .citizenNumber(UPDATED_CITIZEN_NUMBER);
+            .citizenNumber(UPDATED_CITIZEN_NUMBER)
+            .genderType(UPDATED_GENDER_TYPE);
         return patient;
     }
 
@@ -118,6 +124,7 @@ public class PatientResourceIT {
         assertThat(testPatient.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testPatient.getBirthDate()).isEqualTo(DEFAULT_BIRTH_DATE);
         assertThat(testPatient.getCitizenNumber()).isEqualTo(DEFAULT_CITIZEN_NUMBER);
+        assertThat(testPatient.getGenderType()).isEqualTo(DEFAULT_GENDER_TYPE);
     }
 
     @Test
@@ -193,7 +200,8 @@ public class PatientResourceIT {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())))
-            .andExpect(jsonPath("$.[*].citizenNumber").value(hasItem(DEFAULT_CITIZEN_NUMBER)));
+            .andExpect(jsonPath("$.[*].citizenNumber").value(hasItem(DEFAULT_CITIZEN_NUMBER)))
+            .andExpect(jsonPath("$.[*].genderType").value(hasItem(DEFAULT_GENDER_TYPE.toString())));
     }
     
     @Test
@@ -210,7 +218,8 @@ public class PatientResourceIT {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
             .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.toString()))
-            .andExpect(jsonPath("$.citizenNumber").value(DEFAULT_CITIZEN_NUMBER));
+            .andExpect(jsonPath("$.citizenNumber").value(DEFAULT_CITIZEN_NUMBER))
+            .andExpect(jsonPath("$.genderType").value(DEFAULT_GENDER_TYPE.toString()));
     }
 
     @Test
@@ -237,7 +246,8 @@ public class PatientResourceIT {
             .name(UPDATED_NAME)
             .phone(UPDATED_PHONE)
             .birthDate(UPDATED_BIRTH_DATE)
-            .citizenNumber(UPDATED_CITIZEN_NUMBER);
+            .citizenNumber(UPDATED_CITIZEN_NUMBER)
+            .genderType(UPDATED_GENDER_TYPE);
         PatientDTO patientDTO = patientMapper.toDto(updatedPatient);
 
         restPatientMockMvc.perform(put("/api/patients")
@@ -253,6 +263,7 @@ public class PatientResourceIT {
         assertThat(testPatient.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testPatient.getBirthDate()).isEqualTo(UPDATED_BIRTH_DATE);
         assertThat(testPatient.getCitizenNumber()).isEqualTo(UPDATED_CITIZEN_NUMBER);
+        assertThat(testPatient.getGenderType()).isEqualTo(UPDATED_GENDER_TYPE);
     }
 
     @Test
