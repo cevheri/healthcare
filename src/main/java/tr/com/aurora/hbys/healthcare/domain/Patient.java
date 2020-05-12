@@ -1,5 +1,6 @@
 package tr.com.aurora.hbys.healthcare.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -47,6 +48,10 @@ public class Patient implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "gender_type")
     private GenderType genderType;
+
+    @ManyToOne
+    @JsonIgnoreProperties("patients")
+    private Bloodtype bloodtype;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -120,6 +125,19 @@ public class Patient implements Serializable {
 
     public void setGenderType(GenderType genderType) {
         this.genderType = genderType;
+    }
+
+    public Bloodtype getBloodtype() {
+        return bloodtype;
+    }
+
+    public Patient bloodtype(Bloodtype bloodtype) {
+        this.bloodtype = bloodtype;
+        return this;
+    }
+
+    public void setBloodtype(Bloodtype bloodtype) {
+        this.bloodtype = bloodtype;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

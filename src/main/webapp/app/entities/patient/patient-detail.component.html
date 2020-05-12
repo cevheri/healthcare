@@ -28,6 +28,12 @@
                 <dd>
                     <span jhiTranslate="{{ 'healthcareApp.GenderType.' + patient.genderType }}">{{ patient.genderType }}</span>
                 </dd>
+                <dt><span jhiTranslate="healthcareApp.patient.bloodtype">Bloodtype</span></dt>
+                <dd>
+                    <div *ngIf="patient.bloodtypeId">
+                        <a [routerLink]="['/bloodtype', patient.bloodtypeId, 'view']">{{ patient.bloodtypeName }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

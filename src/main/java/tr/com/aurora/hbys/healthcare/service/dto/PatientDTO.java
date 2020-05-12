@@ -28,6 +28,10 @@ public class PatientDTO implements Serializable {
 
     private GenderType genderType;
 
+
+    private Long bloodtypeId;
+
+    private String bloodtypeName;
     
     public Long getId() {
         return id;
@@ -77,6 +81,22 @@ public class PatientDTO implements Serializable {
         this.genderType = genderType;
     }
 
+    public Long getBloodtypeId() {
+        return bloodtypeId;
+    }
+
+    public void setBloodtypeId(Long bloodtypeId) {
+        this.bloodtypeId = bloodtypeId;
+    }
+
+    public String getBloodtypeName() {
+        return bloodtypeName;
+    }
+
+    public void setBloodtypeName(String bloodtypeName) {
+        this.bloodtypeName = bloodtypeName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -107,6 +127,8 @@ public class PatientDTO implements Serializable {
             ", birthDate='" + getBirthDate() + "'" +
             ", citizenNumber='" + getCitizenNumber() + "'" +
             ", genderType='" + getGenderType() + "'" +
+            ", bloodtypeId=" + getBloodtypeId() +
+            ", bloodtypeName='" + getBloodtypeName() + "'" +
             "}";
     }
 }

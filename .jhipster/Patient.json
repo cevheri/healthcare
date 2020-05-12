@@ -37,7 +37,15 @@
             "fieldValues": "MALE,FEMALE"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "bloodtype",
+            "otherEntityName": "bloodtype",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "patient"
+        }
+    ],
     "changelogDate": "20200501230400",
     "entityTableName": "patient",
     "dto": "mapstruct",

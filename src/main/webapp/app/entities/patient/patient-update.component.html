@@ -72,6 +72,14 @@
                         <option value="FEMALE">{{ 'healthcareApp.GenderType.FEMALE' | translate }}</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="healthcareApp.patient.bloodtype" for="field_bloodtype">Bloodtype</label>
+                    <select class="form-control" id="field_bloodtype" name="bloodtype" formControlName="bloodtypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bloodtypeOption.id" *ngFor="let bloodtypeOption of bloodtypes; trackBy: trackById">{{ bloodtypeOption.name }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

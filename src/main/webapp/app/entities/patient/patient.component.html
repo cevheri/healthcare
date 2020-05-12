@@ -28,6 +28,7 @@
                     <th scope="col"  jhiSortBy="birthDate"><span jhiTranslate="healthcareApp.patient.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="citizenNumber"><span jhiTranslate="healthcareApp.patient.citizenNumber">Citizen Number</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="genderType"><span jhiTranslate="healthcareApp.patient.genderType">Gender Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bloodtypeName"><span jhiTranslate="healthcareApp.patient.bloodtype">Bloodtype</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,6 +40,11 @@
                     <td>{{ patient.birthDate | date:'mediumDate' }}</td>
                     <td>{{ patient.citizenNumber }}</td>
                     <td jhiTranslate="{{ 'healthcareApp.GenderType.' + patient.genderType }}">{{ patient.genderType }}</td>
+                    <td>
+                        <div *ngIf="patient.bloodtypeId">
+                            <a [routerLink]="['/bloodtype', patient.bloodtypeId , 'view']" >{{ patient.bloodtypeName }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

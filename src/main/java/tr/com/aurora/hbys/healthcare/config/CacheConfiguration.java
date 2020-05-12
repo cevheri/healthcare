@@ -52,6 +52,7 @@ public class CacheConfiguration {
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.Visit.class.getName());
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.Visit.class.getName() + ".visitServices");
             createCache(cm, tr.com.aurora.hbys.healthcare.domain.Company.class.getName());
+            createCache(cm, tr.com.aurora.hbys.healthcare.domain.Bloodtype.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IPatient, Patient } from 'app/shared/model/patient.model';
 import { PatientService } from './patient.service';
+import { IBloodtype } from 'app/shared/model/bloodtype.model';
+import { BloodtypeService } from 'app/entities/bloodtype/bloodtype.service';
 
 @Component({
   selector: 'jhi-patient-update',
@@ -14,6 +16,7 @@ import { PatientService } from './patient.service';
 })
 export class PatientUpdateComponent implements OnInit {
   isSaving = false;
+  bloodtypes: IBloodtype[] = [];
   birthDateDp: any;
 
   editForm = this.fb.group({
@@ -22,14 +25,22 @@ export class PatientUpdateComponent implements OnInit {
     phone: [null, [Validators.maxLength(20)]],
     birthDate: [],
     citizenNumber: [null, [Validators.required, Validators.maxLength(11)]],
-    genderType: []
+    genderType: [],
+    bloodtypeId: []
   });
 
-  constructor(protected patientService: PatientService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected patientService: PatientService,
+    protected bloodtypeService: BloodtypeService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ patient }) => {
       this.updateForm(patient);
+
+      this.bloodtypeService.query().subscribe((res: HttpResponse<IBloodtype[]>) => (this.bloodtypes = res.body || []));
     });
   }
 
@@ -40,7 +51,8 @@ export class PatientUpdateComponent implements OnInit {
       phone: patient.phone,
       birthDate: patient.birthDate,
       citizenNumber: patient.citizenNumber,
-      genderType: patient.genderType
+      genderType: patient.genderType,
+      bloodtypeId: patient.bloodtypeId
     });
   }
 
@@ -66,7 +78,8 @@ export class PatientUpdateComponent implements OnInit {
       phone: this.editForm.get(['phone'])!.value,
       birthDate: this.editForm.get(['birthDate'])!.value,
       citizenNumber: this.editForm.get(['citizenNumber'])!.value,
-      genderType: this.editForm.get(['genderType'])!.value
+      genderType: this.editForm.get(['genderType'])!.value,
+      bloodtypeId: this.editForm.get(['bloodtypeId'])!.value
     };
   }
 
@@ -84,5 +97,9 @@ export class PatientUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IBloodtype): any {
+    return item.id;
   }
 }

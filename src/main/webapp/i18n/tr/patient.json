@@ -20,7 +20,8 @@
       "phone": "Phone",
       "birthDate": "Birth Date",
       "citizenNumber": "Citizen Number",
-      "genderType": "Gender Type"
+      "genderType": "Gender Type",
+      "bloodtype": "Bloodtype"
     }
   }
 }

@@ -13,6 +13,7 @@
         "visitService": "Visit Service",
         "visit": "Visit",
         "company": "Company",
+        "bloodtype": "Bloodtype",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,23 @@
+{
+  "healthcareApp": {
+    "bloodtype": {
+      "home": {
+        "title": "Bloodtypes",
+        "createLabel": "Create a new Bloodtype",
+        "createOrEditLabel": "Create or edit a Bloodtype",
+        "notFound": "No Bloodtypes found"
+      },
+      "created": "A new Bloodtype is created with identifier {{ param }}",
+      "updated": "A Bloodtype is updated with identifier {{ param }}",
+      "deleted": "A Bloodtype is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bloodtype {{ id }}?"
+      },
+      "detail": {
+        "title": "Bloodtype"
+      },
+      "name": "Name",
+      "code": "Code"
+    }
+  }
+}

@@ -8,6 +8,8 @@ export interface IPatient {
   birthDate?: Moment;
   citizenNumber?: string;
   genderType?: GenderType;
+  bloodtypeName?: string;
+  bloodtypeId?: number;
 }
 
 export class Patient implements IPatient {
@@ -17,6 +19,8 @@ export class Patient implements IPatient {
     public phone?: string,
     public birthDate?: Moment,
     public citizenNumber?: string,
-    public genderType?: GenderType
+    public genderType?: GenderType,
+    public bloodtypeName?: string,
+    public bloodtypeId?: number
   ) {}
 }
