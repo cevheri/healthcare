@@ -16,7 +16,7 @@
     -->
     <changeSet id="00000000000001" author="jhipster">
         <createTable tableName="jhi_user">
-            <column name="id" type="bigint" >
+            <column name="id" type="bigint"  autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="login" type="varchar(50)">
@@ -101,7 +101,7 @@
             <column name="user_id" type="numeric"/>
         </loadData>
         <createTable tableName="jhi_persistent_audit_event">
-            <column name="event_id" type="bigint" >
+            <column name="event_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="principal" type="varchar(50)">
@@ -144,7 +144,7 @@
 
     <changeSet author="jhipster" id="00000000000002" context="test">
         <createTable tableName="jhi_date_time_wrapper">
-            <column  name="id" type="BIGINT">
+            <column  name="id" type="BIGINT"  autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="jhi_date_time_wrapperPK"/>
             </column>
             <column name="instant" type="timestamp"/>

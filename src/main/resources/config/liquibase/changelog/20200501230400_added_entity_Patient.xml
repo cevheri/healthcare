@@ -12,7 +12,7 @@
     -->
     <changeSet id="20200501230400-1" author="jhipster">
         <createTable tableName="patient">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(100)">
