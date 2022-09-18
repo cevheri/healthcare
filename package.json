@@ -65,7 +65,7 @@
     "jest-junit": "10.0.0",
     "jest-preset-angular": "8.0.0",
     "jest-sonar-reporter": "2.0.0",
-    "lint-staged": "8.2.1",
+    "lint-staged": "13.0.3",
     "merge-jsons-webpack-plugin": "1.0.20",
     "mini-css-extract-plugin": "0.8.0",
     "moment-locales-webpack-plugin": "1.1.2",
